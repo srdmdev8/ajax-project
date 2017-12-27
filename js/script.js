@@ -22,19 +22,7 @@ function loadData() {
     $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
     //NYTimes AJAX request
-    var nytimesUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json"
-    nytimesUrl += '?' + $.param({
-      'api-key': "7c89ae1b6e3b4e58b71d39428d8b59a7",
-      'sort': "newest"
-    });
-    $.ajax({
-      url: nytimesUrl,
-      method: 'GET',
-    }).done(function(result) {
-      console.log(result);
-    }).fail(function(err) {
-      throw err;
-    });
+    var nytimesUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + cityStr + '&sort=newest&api-key=7c89ae1b6e3b4e58b71d39428d8b59a7';
 
     $.getJSON("nytimesUrl", function (data) {
       $nytHeaderElem.text('New York Times Articles About ' + cityStr);
