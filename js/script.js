@@ -18,11 +18,11 @@ function loadData() {
 
     $greeting.text('So, you want to live at ' + address + '?');
 
-    var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '';
+    var streetviewUrl = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '';
     $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
     //NYTimes AJAX request
-    var nytimesUrl = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + cityStr +    '&sort=newest&api-key=7c89ae1b6e3b4e58b71d39428d8b59a7";
+    var nytimesUrl = "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + cityStr +    '&sort=newest&api-key=7c89ae1b6e3b4e58b71d39428d8b59a7"
     $.getJSON("nytimesUrl", function (data) {
       $nytHeaderElem.text('New York Times Articles About ' + cityStr);
 
